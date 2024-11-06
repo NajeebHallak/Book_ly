@@ -3,6 +3,7 @@ import 'package:book_ly/features/home/presentation/view/widgets/image_in_item_be
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
+import 'row_book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({super.key});
@@ -44,20 +45,7 @@ class BestSellerListViewItem extends StatelessWidget {
               const SizedBox(
                 height: 3,
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .5,
-                child: const Row(
-                  children: [
-                    Text(
-                      r'19.99$',
-                      style: Styles.textStyle20,
-                    ),
-                    Spacer(),
-                    Text('⭐️ 4.8', style: Styles.textStyle16),
-                    Text('(2390)', style: Styles.textStyle14),
-                  ],
-                ),
-              ),
+              const RowBookRating(),
             ],
           )
         ],
