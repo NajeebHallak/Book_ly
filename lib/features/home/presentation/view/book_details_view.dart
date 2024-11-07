@@ -1,9 +1,6 @@
-import 'package:book_ly/core/utils/styles.dart';
-import 'package:book_ly/features/home/presentation/view/widgets/custom_app_bar_details.dart';
-import 'package:book_ly/features/home/presentation/view/widgets/featured_item.dart';
-
+import 'package:book_ly/features/home/presentation/view/widgets/bok_details_section_one.dart';
+import 'package:book_ly/features/home/presentation/view/widgets/book_details_sectionTow.dart';
 import 'package:flutter/material.dart';
-
 
 class BookDetailsView extends StatelessWidget {
   const BookDetailsView({super.key});
@@ -23,28 +20,18 @@ class BookDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const CustomAppBarDetails(),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * .40,
-          child: const FeaturedItem(),
-        ),
-        const SizedBox(height: 43),
-        const Text(
-          'The Jungle Book',
-          style: Styles.textStyle30,
-        ),
-        const SizedBox(
-          height: 6,
-        ),
-        const Opacity(
-          opacity: 0.7,
-          child: Text(
-            'Rudyard Kipling',
-            style: Styles.textStyle18,
+    return const CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          child: Column(
+            children: [
+              BokDetailsSectionOne(),
+              Expanded(child: SizedBox(height: 50)),
+              BokDetailsSectionTow(),
+              SizedBox(height: 40),
+            ],
           ),
-        ),
+        )
       ],
     );
   }
