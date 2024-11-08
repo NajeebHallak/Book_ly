@@ -33,11 +33,11 @@ class HomeRepoImpl implements HomeRpo {
     try {
       Map<String, dynamic> theDate = await api.get(
           endBoint: 'volumes?q=subjict:programming&Filtering=free-ebooks');
-      List<BookModel> bookModel = [];
+
       for (var element in theDate["items"]) {
         bookModel.add(BookModel.fromJson(element));
       }
-
+      List<BookModel> bookModel = [];
       return right(bookModel);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioError(e));
