@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/styles.dart';
-class BoxAction extends StatelessWidget {
-  const BoxAction({
+import '../utils/styles.dart';
+
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({
     super.key,
     required this.backgroundColor,
     required this.text,

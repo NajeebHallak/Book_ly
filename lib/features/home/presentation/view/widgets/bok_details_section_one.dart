@@ -1,5 +1,4 @@
-
-import 'package:book_ly/features/home/presentation/view/widgets/box_action.dart';
+import 'package:book_ly/core/widgets/custom_elevated_button..dart';
 import 'package:book_ly/features/home/presentation/view/widgets/custom_app_bar_details.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/featured_item.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/star_and_row.dart';
@@ -41,7 +40,7 @@ class BokDetailsSectionOne extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: BoxAction(
+                child: CustomElevatedButton(
                   backgroundColor: Colors.white,
                   textColor: Colors.black,
                   text: '19.99',
@@ -51,7 +50,7 @@ class BokDetailsSectionOne extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: BoxAction(
+                child: CustomElevatedButton(
                   backgroundColor: Color(0xFFEF8262),
                   textColor: Colors.white,
                   text: 'Free provide',
