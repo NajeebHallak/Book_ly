@@ -24,7 +24,7 @@ class BestSellerItem extends StatelessWidget {
           children: [
             const ImageItemInBest(),
             const SizedBox(
-              width: 30,
+              width: 30
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

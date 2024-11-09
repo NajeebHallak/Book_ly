@@ -1,7 +1,14 @@
 import 'package:book_ly/constans.dart';
+import 'package:book_ly/core/utils/api_services.dart';
 import 'package:book_ly/core/utils/routers.dart';
+import 'package:book_ly/core/utils/servis_locator_get_it.dart';
+import 'package:book_ly/features/home/data/repository/home_reop_impl.dart';
+import 'package:book_ly/features/home/presentation/manag/featured_book_cubit/featured_book_cubit.dart';
+import 'package:book_ly/features/home/presentation/manag/newset_books_cubit/newset_books_cubit.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const BookLy());
@@ -12,12 +19,24 @@ class BookLy extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerConfig: Routers.router,
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: kPrimaryColor,
-        textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              FeaturedBooksCubit(getIt<HomeRepoImpl>())..fetchFeaturedBooks(),
+        ),
+        BlocProvider(
+          create: (context) => NewsetBooksCubit(getIt<HomeRepoImpl>()),
+        ),
+      ],
+      child: MaterialApp.router(
+        routerConfig: Routers.router,
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          scaffoldBackgroundColor: kPrimaryColor,
+          textTheme:
+              GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
+        ),
       ),
     );
   }
