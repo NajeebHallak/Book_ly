@@ -9,6 +9,27 @@ import 'package:dio/dio.dart';
 class HomeRepoImpl implements HomeRpo {
   Api api;
   HomeRepoImpl(this.api);
+
+  @override
+  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+    try {
+      Map<String, dynamic> theDate = await api.get(
+          endBoint:
+              'volumes?q=subjict:sport&Filtering=free-ebooks&sorting=newest');
+      List<BookModel> bookModel1 = [];
+      for (var element in theDate["items"]) {
+        bookModel1.add(BookModel.fromJson(element));
+        print('boooook mooodel lenght is    ......${bookModel1.length}');
+      }
+
+      return right(bookModel1);
+    } on DioException catch (e) {
+      return left(ServerFailure.fromDioError(e));
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
+  }
+
   @override
   Future<Either<Failure, List<BookModel>>> fetchNewsetBooks() async {
     try {
@@ -29,18 +50,17 @@ class HomeRepoImpl implements HomeRpo {
   }
 
   @override
-  Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
+  Future<Either<Failure, List<BookModel>>> fethSimilardBooks() async {
     try {
       Map<String, dynamic> theDate = await api.get(
           endBoint:
-              'volumes?q=subjict:programming&Filtering=free-ebooks&sorting=newest');
-      List<BookModel> bookModel1 = [];
+              'volumes?q=subjict:programming&sorting=relevance&Filtering=free-ebooks&sorting=newest');
+      List<BookModel> bookModel = [];
       for (var element in theDate["items"]) {
-        bookModel1.add(BookModel.fromJson(element));
-        print('boooook mooodel lenght is    ......${bookModel1.length}');
+        bookModel.add(BookModel.fromJson(element));
       }
 
-      return right(bookModel1);
+      return right(bookModel);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioError(e));
     } catch (e) {

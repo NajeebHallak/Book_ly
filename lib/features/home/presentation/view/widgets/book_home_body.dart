@@ -1,4 +1,4 @@
-import 'package:book_ly/features/home/presentation/view/widgets/best_seller_list_view_buil.dart';
+import 'package:book_ly/features/home/presentation/view/widgets/newset_book_list_view_buil.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/costom_app_bar.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/featured_list_view_build.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class BodyHomeBody extends StatelessWidget {
             ],
           ),
         ),
-        BestSellerListViewBuil(),
+        NewsetBookListViewBuil(),
       ],
     );
   }

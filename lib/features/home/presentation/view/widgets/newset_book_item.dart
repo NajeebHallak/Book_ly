@@ -9,14 +9,14 @@ import '../../../../../core/utils/styles.dart';
 import '../../../data/models/book_model/book_model.dart';
 import 'row_book_rating.dart';
 
-class BestSellerItem extends StatelessWidget {
-  const BestSellerItem({super.key, required this.bookModel});
+class NewsetBookItem extends StatelessWidget {
+  const NewsetBookItem({super.key, required this.bookModel});
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(Routers.goBookDetailsView);
+        GoRouter.of(context).push(Routers.goBookDetailsView, extra: bookModel);
       },
       child: Padding(
         padding: const EdgeInsets.only(left: 30.0, right: 30, top: 20),
@@ -25,7 +25,7 @@ class BestSellerItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             ImageInItemBset(
-              imageUrl: bookModel.volumeInfo.imageLinks.thumbnail,
+              imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
             ),
             const SizedBox(width: 30),
             Column(
@@ -47,7 +47,7 @@ class BestSellerItem extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .5,
                   child: Text(
-                    bookModel.volumeInfo.authors?[0]??'0',
+                    bookModel.volumeInfo.authors?[0] ?? '0',
                     style: Styles.textStyle14,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,

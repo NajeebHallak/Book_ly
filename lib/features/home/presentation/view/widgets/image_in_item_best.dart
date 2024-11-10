@@ -17,7 +17,7 @@ class ImageInItemBset extends StatelessWidget {
         aspectRatio: 2.8 / 4,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
-          child: CachedNetworkImage(
+          child:CachedNetworkImage(
             imageUrl: imageUrl,
             placeholder: (context, url) => const Center(
                 child: CustomLoadingIndicator(

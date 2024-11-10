@@ -23,7 +23,7 @@ class FeaturedListViewSuccess extends StatelessWidget {
         itemBuilder: (context, index) => Padding(
           padding: const EdgeInsets.only(left: 20),
           child: FeaturedItem(
-            imageUrl: bookModel[index].volumeInfo.imageLinks.thumbnail,
+            imageUrl: bookModel[index].volumeInfo.imageLinks?.thumbnail??'',
           ),
         ),
       ),
