@@ -5,29 +5,30 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../../core/utils/styles.dart';
 
 class StarandRow extends StatelessWidget {
-  const StarandRow({super.key});
-
+  const StarandRow({super.key, required this.rating, required this.count});
+  final int rating;
+  final int count;
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+        const Icon(
           FontAwesomeIcons.solidStar,
           color: Color(0xFFFFDD4F),
           size: 16,
         ),
-        SizedBox(
+        const SizedBox(
           width: 6.3,
         ),
-        Text('4.8', style: Styles.textStyle16),
-        SizedBox(
+        Text('$rating', style: Styles.textStyle14),
+        const SizedBox(
           width: 5,
         ),
         Opacity(
           opacity: 0.5,
           child: Text(
-            '(2390)',
+            '($count)',
             style: Styles.textStyle14,
           ),
         ),

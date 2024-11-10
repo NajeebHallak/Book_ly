@@ -32,13 +32,15 @@ class HomeRepoImpl implements HomeRpo {
   Future<Either<Failure, List<BookModel>>> fetchFeaturedBooks() async {
     try {
       Map<String, dynamic> theDate = await api.get(
-          endBoint: 'volumes?q=subjict:programming&Filtering=free-ebooks');
-      List<BookModel> bookModel = [];
+          endBoint:
+              'volumes?q=subjict:programming&Filtering=free-ebooks&sorting=newest');
+      List<BookModel> bookModel1 = [];
       for (var element in theDate["items"]) {
-        bookModel.add(BookModel.fromJson(element));
+        bookModel1.add(BookModel.fromJson(element));
+        print('boooook mooodel lenght is    ......${bookModel1.length}');
       }
 
-      return right(bookModel);
+      return right(bookModel1);
     } on DioException catch (e) {
       return left(ServerFailure.fromDioError(e));
     } catch (e) {
@@ -46,3 +48,4 @@ class HomeRepoImpl implements HomeRpo {
     }
   }
 }
+//volumes?q=subjict:programming&Filtering=free-ebooks

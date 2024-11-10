@@ -5,20 +5,26 @@ import '../../../../../core/utils/styles.dart';
 class RowBookRating extends StatelessWidget {
   const RowBookRating({
     super.key,
+    required this.rating,
+    required this.count,
   });
-
+  final int rating;
+  final int count;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       width: MediaQuery.of(context).size.width * .5,
-      child: const Row(
+      child: Row(
         children: [
-          Text(
-            r'19.99$',
+          const Text(
+            'Free',
             style: Styles.textStyle20,
           ),
-          Spacer(),
-          StarandRow(),
+           const Spacer(),
+          StarandRow(
+            rating: rating,
+            count: count,
+          ),
         ],
       ),
     );

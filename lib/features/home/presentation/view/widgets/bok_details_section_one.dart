@@ -2,7 +2,6 @@ import 'package:book_ly/core/widgets/custom_elevated_button..dart';
 import 'package:book_ly/features/home/presentation/view/widgets/custom_app_bar_details.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/featured_item.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/star_and_row.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/utils/styles.dart';
@@ -17,7 +16,10 @@ class BokDetailsSectionOne extends StatelessWidget {
         const CustomAppBarDetails(),
         SizedBox(
           height: MediaQuery.of(context).size.height * .30,
-          child: const FeaturedItem(),
+          child: const FeaturedItem(
+            imageUrl:
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCy16nhIbV3pI1qLYHMJKwbH2458oiC9EmA&s',
+          ),
         ),
         const SizedBox(height: 43),
         const Text(
@@ -33,7 +35,10 @@ class BokDetailsSectionOne extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
-        const StarandRow(),
+        const StarandRow(
+          count: 000,
+          rating: 000,
+        ),
         const SizedBox(height: 37),
         const Padding(
           padding: EdgeInsets.symmetric(horizontal: 38),

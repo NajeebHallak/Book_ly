@@ -5,13 +5,11 @@ import 'package:get_it/get_it.dart';
 
 final getIt = GetIt.instance;
 
-void setup() {
+void setupServerLocatod() {
+  getIt.registerSingleton<Api>(Api(Dio()));
   getIt.registerSingleton<HomeRepoImpl>(
     HomeRepoImpl(
-      getIt<Api>(),
+      getIt.get<Api>(),
     ),
-  );
-  getIt.registerSingleton<Api>(
-    Api(Dio()),
   );
 }

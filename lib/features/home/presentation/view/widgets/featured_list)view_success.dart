@@ -1,5 +1,9 @@
-import 'package:book_ly/features/home/presentation/view/widgets/featured_item.dart';
+import 'package:book_ly/features/home/data/models/book_model/book_model.dart';
+import 'package:book_ly/features/home/presentation/manag/featured_book_cubit/featured_book_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'featured_item.dart';
 
 class FeaturedListViewSuccess extends StatelessWidget {
   const FeaturedListViewSuccess({
@@ -8,13 +12,19 @@ class FeaturedListViewSuccess extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<BookModel> bookModel =
+        BlocProvider.of<FeaturedBooksCubit>(context).bookModel!;
     return SizedBox(
       height: MediaQuery.of(context).size.height * .30,
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => const Padding(
-          padding: EdgeInsets.only(left: 20),
-          child: FeaturedItem(),
+        itemCount: bookModel.length,
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: FeaturedItem(
+            imageUrl: bookModel[index].volumeInfo.imageLinks.thumbnail,
+          ),
         ),
       ),
     );
