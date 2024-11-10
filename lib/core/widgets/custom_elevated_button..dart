@@ -9,11 +9,13 @@ class CustomElevatedButton extends StatelessWidget {
     required this.text,
     required this.borderRadius,
     required this.textColor,
+    this.onPressed,
   });
   final Color backgroundColor;
   final Color textColor;
   final String text;
   final BorderRadiusGeometry? borderRadius;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -25,7 +27,7 @@ class CustomElevatedButton extends StatelessWidget {
             borderRadius: borderRadius ?? BorderRadius.circular(15),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style: Styles.textStyle18.copyWith(color: textColor),
