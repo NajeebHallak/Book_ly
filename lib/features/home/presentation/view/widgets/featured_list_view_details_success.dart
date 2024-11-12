@@ -2,7 +2,7 @@ import 'package:book_ly/features/home/presentation/view/widgets/featured_item.da
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../data/models/book_model/book_model.dart';
+import '../../../../../core/models/book_model/book_model.dart';
 import '../../manag/similar_cubit/similar_book_cubit.dart';
 
 class FeaturedListViewDetailsSuccess extends StatelessWidget {

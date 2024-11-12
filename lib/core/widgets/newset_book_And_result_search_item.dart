@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../../core/utils/styles.dart';
-import '../../../data/models/book_model/book_model.dart';
-import 'row_book_rating.dart';
+import '../utils/styles.dart';
+import '../models/book_model/book_model.dart';
+import '../../features/home/presentation/view/widgets/row_book_rating.dart';
 
-class NewsetBookItem extends StatelessWidget {
-  const NewsetBookItem({super.key, required this.bookModel});
+class NewsetAndResultSearchBookItem extends StatelessWidget {
+  const NewsetAndResultSearchBookItem({super.key, required this.bookModel});
   final BookModel bookModel;
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class NewsetBookItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            ImageInItemBset(
+            ImageInItemNewset(
               imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? '',
             ),
             const SizedBox(width: 30),

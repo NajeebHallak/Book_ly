@@ -1,5 +1,5 @@
 import 'package:book_ly/core/utils/routers.dart';
-import 'package:book_ly/features/home/data/models/book_model/book_model.dart';
+import 'package:book_ly/core/models/book_model/book_model.dart';
 import 'package:book_ly/features/home/presentation/manag/featured_book_cubit/featured_book_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

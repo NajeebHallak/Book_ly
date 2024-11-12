@@ -1,7 +1,7 @@
 import 'package:book_ly/core/errors/failure.dart';
 import 'package:book_ly/core/utils/api_services.dart';
 
-import 'package:book_ly/features/home/data/models/book_model/book_model.dart';
+import 'package:book_ly/core/models/book_model/book_model.dart';
 import 'package:book_ly/features/home/data/repository/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -15,7 +15,7 @@ class HomeRepoImpl implements HomeRpo {
     try {
       Map<String, dynamic> theDate = await api.get(
           endBoint:
-              'volumes?q=subjict:sport&Filtering=free-ebooks&sorting=newest');
+              'volumes?q=subjict:programming&Filtering=free-ebooks&sorting=newest');
       List<BookModel> bookModel1 = [];
       for (var element in theDate["items"]) {
         bookModel1.add(BookModel.fromJson(element));

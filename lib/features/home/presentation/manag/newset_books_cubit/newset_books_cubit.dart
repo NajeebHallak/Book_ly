@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:book_ly/features/home/data/repository/home_repo.dart';
 import 'package:equatable/equatable.dart';
-import '../../../data/models/book_model/book_model.dart';
+import '../../../../../core/models/book_model/book_model.dart';
 part 'newset_books_state.dart';
 
 class NewsetBooksCubit extends Cubit<NewsetBooksState> {

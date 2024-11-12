@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_loading_indicator.dart';
 
-class ImageInItemBset extends StatelessWidget {
-  const ImageInItemBset({
+class ImageInItemNewset extends StatelessWidget {
+  const ImageInItemNewset({
     super.key,
     required this.imageUrl,
   });
@@ -17,7 +17,7 @@ class ImageInItemBset extends StatelessWidget {
         aspectRatio: 2.8 / 4,
         child: ClipRRect(
           borderRadius: BorderRadius.circular(15),
-          child:CachedNetworkImage(
+          child: CachedNetworkImage(
             imageUrl: imageUrl,
             placeholder: (context, url) => const Center(
                 child: CustomLoadingIndicator(

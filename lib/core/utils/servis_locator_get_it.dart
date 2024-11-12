@@ -3,6 +3,8 @@ import 'package:book_ly/features/home/data/repository/home_reop_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../features/search/data/repository/search_repo_impl.dart';
+
 final getIt = GetIt.instance;
 
 void setupServerLocatod() {
@@ -12,4 +14,5 @@ void setupServerLocatod() {
       getIt.get<Api>(),
     ),
   );
+  getIt.registerSingleton<SearchRepoImpl>(SearchRepoImpl(getIt.get<Api>()));
 }

@@ -1,6 +1,6 @@
 import 'package:book_ly/core/function/custom_launch_url.dart';
 import 'package:book_ly/core/widgets/custom_elevated_button..dart';
-import 'package:book_ly/features/home/data/models/book_model/book_model.dart';
+import 'package:book_ly/core/models/book_model/book_model.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/custom_app_bar_details.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/featured_item.dart';
 import 'package:book_ly/features/home/presentation/view/widgets/star_and_row.dart';
